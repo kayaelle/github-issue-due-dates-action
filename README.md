@@ -13,14 +13,15 @@ due: 2022-09-19
 name: Main Workflow
 on:
   schedule:
-    - cron:  '0 * * * *'
+    - cron:  '*/5 * * * *'
+    - runs every five mins -- max amt actions will run. 
 jobs:
   Ubuntu:
     name: Add labels to issues
     runs-on: ubuntu-latest
     steps:
       - name: GitHub Issue Due Dates Action
-        uses: alexleventer/github-issue-due-dates-action@1.2.0
+        uses: kayaelle/github-issue-due-dates-action@0.5
         with:
           GH_TOKEN: "${{ secrets.GH_TOKEN }}"
 ```
